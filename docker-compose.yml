@@ -7,15 +7,15 @@ services:
     image: redis:4-alpine
   app:
     build: .
-    env_file: .env
+    env_file: ushahidi.env
     command: start
     ports:
-      - "7080:8080"
+      - "127.0.0.1:7080:8080"
     volumes:
       - storage-app-public:/var/www/storage/app/public
   platform_tasks:
     build: .
-    env_file: .env
+    env_file: ushahidi.env
     command: start
     volumes:
       - storage-app-public:/var/www/storage/app/public
