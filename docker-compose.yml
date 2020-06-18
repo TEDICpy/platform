@@ -1,8 +1,10 @@
-version: "2"
+version: "2.4"
 services:
   db:
     image: mysql:5.7
     env_file: mysql.env
+    volumes:
+      - db:/var/lib/mysql
   redis:
     image: redis:4-alpine
   app:
@@ -23,3 +25,4 @@ services:
 volumes:
   # share storage/app/public between platform containers
   storage-app-public:
+  db:
